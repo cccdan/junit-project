@@ -35,24 +35,38 @@ public class AccountDetails {
     public String getAccountType() {
         return accountType;
     }
+//
+//    public void setName(String name) {
+//        this.name = name;
+//    }
+//
+//    public void setAccountNumber(Double accountNumber) {
+//        this.accountNumber = accountNumber;
+//    }
+////
+//    public void setCustomerID(Integer customerID) {
+//        this.customerID = customerID;
+//    }
+//
+//    public void setBalance(Double balance) {
+//        this.balance = balance;
+//    }
+//
+//    public void setAccountType(String accountType) {
+//        this.accountType = accountType;
+//    }
 
-    public void setName(String name) {
-        this.name = name;
+    public void deposit(double depositAmount) {
+        balance += depositAmount;
     }
 
-    public void setAccountNumber(Double accountNumber) {
-        this.accountNumber = accountNumber;
-    }
-
-    public void setCustomerID(Integer customerID) {
-        this.customerID = customerID;
-    }
-
-    public void setBalance(Double balance) {
-        this.balance = balance;
-    }
-
-    public void setAccountType(String accountType) {
-        this.accountType = accountType;
+    public boolean withdraw(double withdrawAmount) {
+        if (withdrawAmount > balance) {
+            System.out.println("Insufficient funds");
+            return false;
+        } else {
+            balance -= withdrawAmount;
+            return true;
+        }
     }
 }

@@ -16,18 +16,26 @@ public class AccountDetailsTest {
         accountDetails = new AccountDetails("anita", 114532,
                 811481533,5000, "Savings");
 
-    }
-
-
-
-    @Test
-    public void validateName() {
-        assertTrue(accountDetails.getName().matches("^[a-zA-Z]*$"));
+        System.out.println("@BeforeEach block has been executed");
+        System.out.println("Account balance: " + accountDetails.getBalance());
     }
 
     @Test
-    public void validateBalance() {
-        assertTrue(accountDetails.getBalance() >= 0);
+    void depositTest() {
+        accountDetails.deposit(500);
+        System.out.println("@Test block for deposit has been executed");
+    }
+
+    @Test
+    void withdrawTest() {
+        accountDetails.withdraw(1000);
+        System.out.println("@Test for withdraw has been executed");
+    }
+
+    @AfterEach
+    void balance() {
+        System.out.println("@AfterEach has been executed");
+        System.out.println("Account balance: " + accountDetails.getBalance());
     }
 
 }
